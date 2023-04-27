@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple LP</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            width: 100%;
+            background-image: url("imgLP.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        body::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0.2;
+            z-index: -1;
+
+        }
+
+        header{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        header .logo{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        header nav ul {
+            list-style: none;
+        }
+
+        header nav ul li {
+            display: inline-block;
+        }
+
+        header nav ul li a{
+            text-decoration: none;
+            color:black;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        header nav ul li a:hover{
+            color: thistle;
+        }
+
+        header nav ul li .contact{
+            display: block;
+            background-color: teal;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            white-space: nowrap;
+            text-align: center;
+            color:black;
+        }
+
+        main h1{
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        main p{
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        main .button-area{
+            margin-top: 40px;
+        }
+
+        .button-area button{
+            padding: 17px 30px;
+            background-color: orange;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 17px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .button-area button:hover{
+            color: thistle;
+        }
+
+        .button-area .free{
+            margin-right: 30px;
+
+        }
+
+        #cursor{
+            pointer-events: none;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(186, 111, 45, 0.5);
+            position: fixed;
+            top: -16px;
+            left: -16px;
+            border-radius: 50%;
+            transition: 0.15s;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="#"><img src="imgLP2.png" alt="logo" class="logo"></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">サービス</a></li>
+                <li><a href="#">本サイトについて</a></li>
+                <li><a href="#">ブログ</a></li>
+                <li><a href="#" class="contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="title">
+            <h1>ペットとの距離をもっと身近に</h1>
+            <p>ペット料理レシピサイト</p>
+
+        </div>
+        <div class="button-area">
+            <button class="free">無料でお試し</button>
+            <button >お問い合わせ</button>
+        </div>
+    </main>
+
+    <div id="cursor"></div>
+
+    <script>
+        const cursor=document.getElementById("cursor")
+
+        document.addEventListener("mousemove",function(e){
+            //console.log(e.clientX);
+            cursor.style.transform=`translate(${e.clientX}px, ${e.clientY}px)`;
+
+        });
+    </script>
+</body>
+</html>
